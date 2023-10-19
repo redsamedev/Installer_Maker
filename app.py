@@ -4,19 +4,18 @@ print('Installer Maker Version 1.0')
     by GigaCoder
 """
 #Welcome to Installer Maker main script
-
-#Languages Selection Variables
-english = True
-French = False
-Espagnole = False
-#Directory Source Variable
-Dir_Source = 'Example'
-#Application Info
-inf_app = ''
 #Help List Variable
 hlist = ['mk-installer: Make the Installer', 'ver: APP Version']
 #APP Code
 def app_main():
+    #Languages Selection Variables
+    english = True
+    French = False
+    Espagnole = False
+    #Directory Source Variable
+    Dir_Source = 'Example'
+    #Application Info
+    inf_app = ''
     for i in hlist:
         print('----------------------')
         print(i)
@@ -37,12 +36,38 @@ def app_main():
             dir_select = input('Select Directory Source: ')
             #Application or any file Info
             app_inf_select = input('File Info: ')
-            with open('script.py', 'w') as script_file:
-                script_file.write('')
+            #Logic
+            if Eng == 'on' and Fra == 'off' and esp == 'off':
+                english = True
+                French = False
+                Espagnole = False
+            elif Eng == 'on' and Fra == 'on' and esp == 'on':
+                english = True
+                French = True
+                Espagnole = True
+            elif Eng == 'off' and Fra == 'on' and esp == 'off':
+                english = False
+                French = True
+                Espagnole = False
+            elif Eng == 'off' and Fra == 'off' and esp == 'on':
+                english = False
+                French = False
+                Espagnole = True
+            inf_app = app_inf_select
+            Dir_Source = dir_select
+            with open('settings.py', 'w') as settings_file:
+                settings_file.write('english = ' + str(english) + '\n')
+                settings_file.write('French = ' + str(French) + '\n')
+                settings_file.write('Espagnole = ' + str(Espagnole) + '\n')
+                settings_file.write('inf_app = "' + str(inf_app)+ '"' + '\n')
+                settings_file.write('Dir_Source = "' + str(Dir_Source)+ '"' + '\n')
+            break
         elif cmd == 'ver':
             print('---------------------------' + '\n')
             print('Installer Maker Version 1.0' + '\n' + '\n' +'Application by GigaCoder' + '\n')
             print('---------------------------' + '\n')
+
+
 
 if __name__ == '__main__':
     app_main()
