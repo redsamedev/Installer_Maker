@@ -1,0 +1,69 @@
+from settings import english, French, Espagnole, inf_app, Dir_Source
+import shutil
+
+def eng_installer():
+    print(f'Welcome to {inf_app} installer' + '\n' + '\n')
+    sellocatio = input(f'Select {inf_app} location: ')
+    print('\n' + 'Installing and Copying Files...')
+    try:
+        shutil.copytree(Dir_Source, sellocatio)
+        print('The Installation is Complete successfully')
+    except Exception as e:
+        print(f'Something went wrong! {e}')
+    
+def fra_installer():
+    print(f"Bienvenue chez {inf_app} l'installateur" + '\n' + '\n')
+    sellocatio = input(f"Selectionnez {inf_app} l'emplacement: ")
+    print('\n' + 'Installation et copie de fichiers...')
+    try:
+        shutil.copytree(Dir_Source, sellocatio)
+        print("L'installation est termine avec succes")
+    except Exception as e:
+        print(f"Quelque chose s'est mal passe! {e}")
+def esp_installer():
+    print(f'Bienvenido al {inf_app} instalador' + '\n' + '\n')
+    sellocatio = input(f'Seleccionar {inf_app} ubicacion: ')
+    print('\n' + 'Instalando y copiando archivos...')
+    try:
+        shutil.copytree(Dir_Source, sellocatio)
+        print('La instalacion se completo con exito')
+    except Exception as e:
+        print(f'Algo salio mal! {e}')
+
+while True:
+    if english == True and French == True and Espagnole == True:
+        print('\n' + 'eng stands for English' + '\n' + 'fra stands for French' + '\n' + 'esp stands for Espagnole' + '\n')
+        sel3 = input("Select Language: ")
+        if sel3 == 'eng':
+            eng_installer()
+        elif sel3 == 'fra':
+            fra_installer()
+        elif sel3 == 'esp':
+            esp_installer()
+    elif english == True and French == False and Espagnole == False:
+        eng_installer()
+    elif english == False and French == True and Espagnole == False:
+        fra_installer()
+    elif english == False and French == False and Espagnole == True:
+        esp_installer()
+    elif english == True and French == False and Espagnole == True:
+        print('\n' + 'eng stands for English' + '\n' + 'esp stands for Espagnole' + '\n')
+        sel2 = input("Select Language: ")
+        if sel2 == 'eng':
+            eng_installer()
+        elif sel2 == 'esp':
+            esp_installer()
+    elif english == True and French == True and Espagnole == False:
+        print('\n' + 'eng stands for English' + '\n' + 'fra stands for French' + '\n')
+        sel1 = input("Select Language: ")
+        if sel1 == 'eng':
+            eng_installer()
+        elif sel1 == 'fra':
+            fra_installer()
+    elif english == False and French == True and Espagnole == True:
+        print('\n' + 'fra stands for French' + '\n' + 'esp stands for Espagnole' + '\n')
+        sel0 = input("Select Language: ")
+        if sel0 == 'fra':
+            fra_installer()
+        elif sel0 == 'esp':
+            esp_installer()

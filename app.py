@@ -61,6 +61,11 @@ def app_main():
                 settings_file.write('Espagnole = ' + str(Espagnole) + '\n')
                 settings_file.write('inf_app = "' + str(inf_app)+ '"' + '\n')
                 settings_file.write('Dir_Source = "' + str(Dir_Source)+ '"' + '\n')
+            with open('script.py', "w") as script_file, open('main_script', "r") as main_script:
+                py_script = main_script.read()
+                script_file.write(str(py_script))
+                script_file.close()
+            print('Done!')
             break
         elif cmd == 'ver':
             print('---------------------------' + '\n')
