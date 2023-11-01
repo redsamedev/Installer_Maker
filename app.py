@@ -84,6 +84,7 @@ def app_main():
                 os.remove('settings.py')
                 os.remove('script.py')
                 os.remove(f'{inf_app}.spec')
+                os.remove('build\*')
             except:
                 print('Somthing went wrong...')
             time.sleep(1.25)
