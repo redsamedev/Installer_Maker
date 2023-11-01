@@ -1,3 +1,5 @@
+import os
+import time
 print('Installer Maker Version 1.0')
 """
     the Script
@@ -65,7 +67,23 @@ def app_main():
                 py_script = main_script.read()
                 script_file.write(str(py_script))
                 script_file.close()
-            print('Done!')
+            try:
+                print('Converting the script to EXE file...')
+                os.system('pip install pyinstaller')
+                os.system(f'pyinstaller script.py --onefile --add-data "settings.py:." --name {inf_app}')
+            except:
+                print('Somthing went wrong...')
+            os.system('clear')
+            try:
+                print('Removing the junk files...')
+                os.remove('settings.py')
+                os.remove('script.py')
+                os.remove(f'{inf_app}.spec')
+            except:
+                print('Somthing went wrong...')
+            time.sleep(1.25)
+            print('\nDone!')
+            input('\npress enter to exit...')
             break
         elif cmd == 'ver':
             print('---------------------------' + '\n')
