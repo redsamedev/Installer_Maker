@@ -1,8 +1,9 @@
 # Installer_Maker
 Welcome to the Installer_Maker source code
 
--First of all i have a problem that when the app creates the installer i want to converte it to an exe file automaticly
--NOTE:"Check the code to see what i'm talking 'NOTE THE FILE IS app.py'"
 
+-this is updated source code and i made the script run a command to convert the script.py to an exe file
+
+-Installing Python required
 
 And Thank you
