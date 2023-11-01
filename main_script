@@ -1,4 +1,4 @@
-from settings import english, French, Espagnole, inf_app, Dir_Source
+from settings import *
 import shutil
 
 def eng_installer():
@@ -10,6 +10,8 @@ def eng_installer():
         print('The Installation is Complete successfully')
     except Exception as e:
         print(f'Something went wrong! {e}')
+    input('press enter to exit...')
+    exit(0)
     
 def fra_installer():
     print(f"Bienvenue chez {inf_app} l'installateur" + '\n' + '\n')

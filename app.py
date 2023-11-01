@@ -1,5 +1,6 @@
 import os
 import time
+import webbrowser
 print('Installer Maker Version 1.0')
 """
     the Script
@@ -69,13 +70,17 @@ def app_main():
                 script_file.close()
             try:
                 print('Converting the script to EXE file...')
+                time.sleep(1.25)
                 os.system('pip install pyinstaller')
                 os.system(f'pyinstaller script.py --onefile --add-data "settings.py:." --name {inf_app}')
+                time.sleep(1.25)
+                print('the script converted to an exe file succesfully..')
+                time.sleep(0.75)
             except:
                 print('Somthing went wrong...')
-            os.system('clear')
             try:
                 print('Removing the junk files...')
+                time.sleep(0.75)
                 os.remove('settings.py')
                 os.remove('script.py')
                 os.remove(f'{inf_app}.spec')
@@ -89,6 +94,11 @@ def app_main():
             print('---------------------------' + '\n')
             print('Installer Maker Version 1.0' + '\n' + '\n' +'Application by GigaCoder' + '\n')
             print('---------------------------' + '\n')
+            cc = input('do you want check my channel :) (y/n) : ')
+            if cc == 'y':
+                webbrowser.open('https://youtube.com/@gigacoder_')
+            else:
+                pass
 
 
 
